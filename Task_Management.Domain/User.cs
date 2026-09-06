@@ -20,5 +20,7 @@ namespace Task_Management.Domain
         [Phone]
         public string? mobile_number { get; set; }
 
+        public Enums role { get; set; } = Enums.User;
+
     }
 }

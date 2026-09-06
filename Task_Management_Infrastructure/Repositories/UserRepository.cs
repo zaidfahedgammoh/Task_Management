@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Task_Management.Application.Interfaces;
+using Task_Management.Domain;
 
 namespace Task_Management_Infrastructure.Repositories;
 
@@ -16,5 +17,10 @@ public class UserRepository : IUserRepository
     public bool EmailExists(string email)
     {
         return _context.Users.Any(u => u.email == email); 
+
+    }
+    public User? GetByEmail(string email)
+    {
+        return _context.Users.FirstOrDefault(u => u.email == email);
     }
 }

@@ -7,7 +7,7 @@ namespace Task_Management.Domain
     public enum Enums
     {
         TTL,
-        User,
+        Employee,
         Manager
     }
 }

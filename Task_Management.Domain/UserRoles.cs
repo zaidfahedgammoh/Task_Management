@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Task_Management.Domain
 {
-    public enum Enums
+    public enum UserRoles
     {
         TTL,
         Employee,

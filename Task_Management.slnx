@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Task_Management.Domain/Task_Management.Domain.csproj" />
+  <Project Path="Task_Management_API/Task_Management_API.csproj" />
+  <Project Path="Task_Management_APP/Task_Management.Application.csproj" />
+  <Project Path="Task_Management_Infrastructure/Task_Management.Infrastructure.csproj" />
+  <Project Path="Task_Management_MVC/Task_Management_MVC.csproj" />
+</Solution>

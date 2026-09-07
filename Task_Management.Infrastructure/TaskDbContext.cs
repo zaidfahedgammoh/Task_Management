@@ -2,10 +2,16 @@
 using Task_Management.Domain;
 
 
-namespace Task_Management.Infrastructure
+namespace Task_Management_Infrastructure
 {
     public class TaskDbContext : DbContext
     {
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .Property(x => x.role)
+                .HasConversion<string>();
+        }
         public TaskDbContext(DbContextOptions<TaskDbContext> options) : base(options) { }
 
         public DbSet<User> Users => Set<User>();

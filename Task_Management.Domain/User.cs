@@ -23,7 +23,7 @@ namespace Task_Management.Domain
         public string? mobile_number { get; set; }
 
         public UserRoles role { get; set; }
-
+        public string role_ar { get; set; } = string.Empty;
         public ICollection<RefreshToken> RefreshTokens { get; set; } = new List<RefreshToken>();
     }
 }

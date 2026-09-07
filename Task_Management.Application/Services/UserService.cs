@@ -8,14 +8,20 @@ public class UserService
 {
     private readonly IUserRepository _userRepository;
     private readonly IPasswordHasher _passwordHasher;
+    private readonly ITokenService _tokenService;
 
     public UserService(
-        IUserRepository userRepository,
-        IPasswordHasher passwordHasher)
+      
+    IUserRepository userRepository,
+    IPasswordHasher passwordHasher,
+    ITokenService tokenService)
     {
         _userRepository = userRepository;
         _passwordHasher = passwordHasher;
+        _tokenService = tokenService;
     }
+   
+    
     public LoginResponse? Login(LoginRequest request)
     {
         var user = _userRepository.GetByEmail(request.Email);
@@ -33,8 +39,16 @@ public class UserService
         {
             return null;
         }
+        var accessToken = _tokenService.GenerateAccessToken(
+    user.Id,
+    user.email,
+    user.role.ToString());
+        var refreshToken = _tokenService.GenerateRefreshToken();
+        return new LoginResponse
+        {
+            AccessToken = accessToken,
+            RefreshToken = refreshToken
+        };
 
-        return new LoginResponse();
-        
     }
 }

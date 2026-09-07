@@ -67,4 +67,33 @@ public class UserService
         };
 
     }
+    public RefreshTokenResponse? Refresh(RefreshTokenRequest request)
+    {
+        var refreshToken = _refreshTokenRepository.GetByToken(request.RefreshToken);
+
+        if (refreshToken is null)
+        {
+            return null;
+        }
+
+        if (refreshToken.ExpiresAt <= DateTime.UtcNow)
+        {
+            return null;
+        }
+
+        if (refreshToken.RevokedAt is not null)
+        {
+            return null;
+        }
+
+        var accessToken = _tokenService.GenerateAccessToken(
+            refreshToken.UserId,
+            refreshToken.User.email,
+            refreshToken.User.role.ToString());
+
+        return new RefreshTokenResponse
+        {
+            AccessToken = accessToken
+        };
+    }
 }

@@ -52,17 +52,18 @@ public class UserService
     user.email,
     user.role.ToString());
         var refreshToken = _tokenService.GenerateRefreshToken();
+
         var refreshTokenEntity = new RefreshToken
         {
             UserId = user.Id,
-            Token = refreshToken,
-            ExpiresAt = DateTime.UtcNow.AddDays(7)
+            Token = refreshToken.Token,
+            ExpiresAt = refreshToken.ExpiresAt
         };
         _refreshTokenRepository.Add(refreshTokenEntity);
         return new LoginResponse
         {
             AccessToken = accessToken,
-            RefreshToken = refreshToken
+            RefreshToken = refreshToken.Token
         };
 
     }

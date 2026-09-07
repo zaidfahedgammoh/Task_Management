@@ -2,7 +2,7 @@
 using Task_Management.Application.Interfaces;
 using Task_Management.Domain;
 
-namespace Task_Management_Infrastructure.Repositories;
+namespace Task_Management.Infrastructure.Repositories;
 
 public class RefreshTokenRepository : IRefreshTokenRepository
 {

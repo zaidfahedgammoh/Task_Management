@@ -1,7 +1,7 @@
 ﻿using Task_Management.Application.Interfaces;
 using Task_Management.Domain;
 
-namespace Task_Management_Infrastructure.Services;
+namespace Task_Management.Infrastructure.Services;
 
 public class PasswordHasher : IPasswordHasher
 {

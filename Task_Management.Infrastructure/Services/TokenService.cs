@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Task_Management.Application.Interfaces;
+using Task_Management.Application.Models;
 
 
 namespace Task_Management_Infrastructure.Services;
@@ -47,8 +48,20 @@ expires: DateTime.UtcNow.AddMinutes(
 
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
-    public string GenerateRefreshToken()
+    public RefreshTokenResult GenerateRefreshToken()
     {
-        return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+        var randomNumber = new byte[32];
+
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomNumber);
+
+        var refreshToken = Convert.ToBase64String(randomNumber);
+
+        return new RefreshTokenResult
+        {
+            Token = refreshToken,
+            ExpiresAt = DateTime.UtcNow.AddDays(
+                int.Parse(_configuration["Jwt:RefreshTokenExpirationDays"]!))
+        };
     }
 }

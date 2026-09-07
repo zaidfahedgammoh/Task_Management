@@ -3,4 +3,11 @@
 GET {{Task_Management_API_HostAddress}}/weatherforecast/
 Accept: application/json
 
-###
+### Login
+POST https://localhost:7011/api/Auth/login
+Content-Type: application/json
+
+{
+  "email": "YOUR_EMAIL",
+  "password": "YOUR_PASSWORD"
+}

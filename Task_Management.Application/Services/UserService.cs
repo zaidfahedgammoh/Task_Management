@@ -12,7 +12,7 @@ public class UserService
     private readonly IPasswordHasher _passwordHasher;
     private readonly ITokenService _tokenService;
     private readonly IRefreshTokenRepository _refreshTokenRepository;
-    private readonly IConfiguration _configuration;
+    
 
     public UserService(
       
@@ -26,7 +26,7 @@ public class UserService
         _passwordHasher = passwordHasher;
         _tokenService = tokenService;
         _refreshTokenRepository = refreshTokenRepository;
-        _configuration = configuration;
+       
     }
    
     

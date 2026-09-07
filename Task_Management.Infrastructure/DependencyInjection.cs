@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Task_Management_Infrastructure;
+using Task_Management.Infrastructure;
 using Task_Management.Application.Interfaces;
-using Task_Management_Infrastructure.Repositories;
-using Task_Management_Infrastructure.Services;
+using Task_Management.Infrastructure.Repositories;
+using Task_Management.Infrastructure.Services;
 
 namespace Task_Management.Infrastructure;
 
@@ -21,7 +21,7 @@ public static class DependencyInjection
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ITokenService, TokenService>();
-        services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
         return services;
     }
 }

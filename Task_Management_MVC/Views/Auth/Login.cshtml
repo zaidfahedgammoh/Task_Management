@@ -6,92 +6,167 @@
     ViewData["Title"] = Localizer["Login"];
 }
 
-<div class="container min-vh-100 d-flex align-items-center justify-content-center">
-    <div class="row w-100 justify-content-center">
-        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+<div class="login-page">
 
-            <div class="card shadow-sm border-0">
-                <div class="card-body p-4 p-md-5">
-                    <div class="d-flex justify-content-end gap-2 mb-4">
+    <!-- Language and theme buttons -->
+    <div class="top-controls">
 
-                        <button type="button"
-                                class="btn btn-outline-secondary btn-sm"
-                                id="languageButton">
-                            @(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ? "EN" : "AR")
-                        </button>
+        <button type="button"
+                id="languageButton"
+                class="control-button">
 
-                        <button type="button"
-                                class="btn btn-outline-secondary btn-sm"
-                                id="themeButton">
-                            🌙
-                        </button>
+            @(System.Globalization.CultureInfo.CurrentUICulture
+                .TwoLetterISOLanguageName == "ar" ? "EN" : "AR")
 
-                    </div>
-                    <div class="text-center mb-4">
+        </button>
 
-                        <h1 class="h3 fw-bold mb-2" id="loginTitle">
-                            @Localizer["WelcomeBack"]
-                        </h1>
+        <button type="button"
+                id="themeButton"
+                class="control-button">
 
-                        <p class="text-secondary mb-0" id="loginSubtitle">
-                            @Localizer["SignInToAccount"]
-                        </p>
+            Dark Mode
 
-                    </div>
-                    <form id="loginForm">
+        </button>
 
-                        <div class="mb-3">
+    </div>
 
-                            <label for="email"
-                                   class="form-label"
-                                   id="emailLabel">
-                                @Localizer["Email"]
-                            </label>
 
-                            <input type="email"
-                                   class="form-control"
-                                   id="email"
-                                   name="email"
-                                   placeholder="@Localizer["EnterYourEmail"]"
-                                   required />
+    <!-- Login card -->
+    <div class="login-card">
 
-                        </div>
+        <div class="login-heading">
 
-                        <div class="mb-4">
+            <h1>
+                @Localizer["WelcomeBack"]
+            </h1>
 
-                            <label for="password"
-                                   class="form-label"
-                                   id="passwordLabel">
-                                @Localizer["Password"]
-                            </label>
-
-                            <input type="password"
-                                   class="form-control"
-                                   id="password"
-                                   name="password"
-                                   placeholder="@Localizer["EnterYourPassword"]"
-                                   required />
-
-                        </div>
-
-                        <button type="submit"
-                                class="btn btn-primary w-100"
-                                id="loginButton">
-                            @Localizer["SignIn"]
-                        </button>
-
-                        <div id="loginMessage"
-                             class="mt-3 text-center">
-                        </div>
-
-                    </form>
-
-                </div>
-            </div>
+            <p>
+                @Localizer["SignInToAccount"]
+            </p>
 
         </div>
+
+
+        <form id="loginForm">
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label for="email">
+                    @Localizer["Email"]
+                </label>
+
+                <input type="email"
+                       id="email"
+                       name="email"
+                       placeholder="@Localizer["EnterYourEmail"]"
+                       autocomplete="email"
+                       required />
+
+            </div>
+
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">
+                    @Localizer["Password"]
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input type="password"
+                           id="password"
+                           name="password"
+                           placeholder="@Localizer["EnterYourPassword"]"
+                           autocomplete="current-password"
+                           required />
+
+                    <button type="button"
+                            id="passwordToggle"
+                            class="password-toggle">
+
+                        Show
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Login button -->
+            <button type="submit"
+                    id="loginButton"
+                    class="login-button">
+
+                @Localizer["SignIn"]
+
+            </button>
+
+
+            <!-- Forgot password -->
+            <div class="forgot-password">
+
+                <a href="#"
+                   id="forgotPasswordLink">
+
+                    @Localizer["ForgotPassword"]
+
+                </a>
+
+            </div>
+
+
+            <!-- Divider -->
+            <div class="divider">
+
+                <span></span>
+
+                <p>or</p>
+
+                <span></span>
+
+            </div>
+
+
+            <!-- Register -->
+            <div class="register">
+
+                <span>
+                    @Localizer["NoAccount"]
+                </span>
+
+                <a href="#"
+                   id="registerLink">
+
+                    @Localizer["Register"]
+
+                </a>
+
+            </div>
+
+
+            <!-- Login result -->
+            <div id="loginMessage"></div>
+
+        </form>
+
     </div>
+
+
+    <!-- Small quote -->
+    <div class="login-quote">
+
+         @Localizer["Small steps lead to big progress."]
+
+    </div>
+
 </div>
+
+
 @section Scripts {
+
     <script src="~/js/login.js"></script>
+
 }

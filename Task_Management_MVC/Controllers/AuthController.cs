@@ -1,7 +1,12 @@
-using System.Net.Http.Json;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Json;
+using System.Security.Claims;
 using Task_Management_MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Task_Management_MVC.Controllers;
 
@@ -35,8 +40,19 @@ public class AuthController : Controller
         }
 
         var result = await response.Content.ReadFromJsonAsync<LoginResponse>();
+        var handler = new JwtSecurityTokenHandler();
+        var token = handler.ReadJwtToken(result!.AccessToken);
+        var claims = token.Claims.ToList();
+        var identity = new ClaimsIdentity(
+        claims,
+        CookieAuthenticationDefaults.AuthenticationScheme);
 
+        var principal = new ClaimsPrincipal(identity);
+        await HttpContext.SignInAsync(
+    CookieAuthenticationDefaults.AuthenticationScheme,
+    principal);
         return Ok(result);
+        
     }
 
     [HttpPost]

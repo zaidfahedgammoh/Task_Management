@@ -24,4 +24,16 @@
 	<data name="SignIn" xml:space="preserve">
     <value>Sign in</value>
   </data>
+	<data name="ForgotPassword" xml:space="preserve">
+	<value>Forgot password?</value>
+		</data>
+	<data name="NoAccount" xml:space="preserve">
+	<value>Don't have an account?</value>
+		</data>
+	<data name="Register" xml:space="preserve">
+		<value>Register</value>
+		</data>
+	<data name="Small steps lead to big progress." xml:space="preserve">
+  <value>Small steps lead to big progress.</value>
+</data>
 </root>

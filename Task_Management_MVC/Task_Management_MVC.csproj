@@ -6,13 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Resources\SharedResource.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Resources\SharedResource.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Task_Management.Application\Task_Management.Application.csproj" />

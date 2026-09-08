@@ -1,5 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<data name="Login" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+	<data name="WelcomeBack" xml:space="preserve">
+    <value>مرحباً بعودتك</value>
+  </data>
+	<data name="SignInToAccount" xml:space="preserve">
+    <value>سجّل الدخول إلى حسابك</value>
+  </data>
+	<data name="Email" xml:space="preserve">
+    <value>البريد الإلكتروني</value>
+  </data>
+	<data name="EnterYourEmail" xml:space="preserve">
+    <value>أدخل بريدك الإلكتروني</value>
+  </data>
+	<data name="Password" xml:space="preserve">
+    <value>كلمة المرور</value>
+  </data>
+	<data name="EnterYourPassword" xml:space="preserve">
+    <value>أدخل كلمة المرور</value>
+  </data>
+	<data name="SignIn" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+</root>

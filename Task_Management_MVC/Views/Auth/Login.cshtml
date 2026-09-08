@@ -12,14 +12,12 @@
 
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4 p-md-5">
-
-                    <!-- Top controls -->
                     <div class="d-flex justify-content-end gap-2 mb-4">
 
                         <button type="button"
                                 class="btn btn-outline-secondary btn-sm"
                                 id="languageButton">
-                            AR
+                            @(System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "ar" ? "EN" : "AR")
                         </button>
 
                         <button type="button"
@@ -29,8 +27,6 @@
                         </button>
 
                     </div>
-
-                    <!-- Header -->
                     <div class="text-center mb-4">
 
                         <h1 class="h3 fw-bold mb-2" id="loginTitle">
@@ -42,8 +38,6 @@
                         </p>
 
                     </div>
-
-                    <!-- Login form -->
                     <form id="loginForm">
 
                         <div class="mb-3">
@@ -98,3 +92,6 @@
         </div>
     </div>
 </div>
+@section Scripts {
+    <script src="~/js/login.js"></script>
+}

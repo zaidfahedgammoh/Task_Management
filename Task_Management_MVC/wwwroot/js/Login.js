@@ -1,0 +1,59 @@
+﻿document.addEventListener("DOMContentLoaded", function () {
+
+    const languageButton = document.getElementById("languageButton");
+    const themeButton = document.getElementById("themeButton");
+
+    languageButton.addEventListener("click", function () {
+
+        const currentLanguage = document.documentElement.lang;
+
+        const newLanguage = currentLanguage === "ar"
+            ? "en"
+            : "ar";
+
+        const returnUrl =
+            window.location.pathname + window.location.search;
+
+        fetch("/Auth/SetLanguage", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                culture: newLanguage,
+                returnUrl: returnUrl
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.reload();
+            }
+        });
+
+    });
+
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+        themeButton.textContent = "☀️";
+    }
+
+    themeButton.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+        const isDark =
+            document.body.classList.contains("dark-mode");
+
+        localStorage.setItem(
+            "theme",
+            isDark ? "dark" : "light"
+        );
+
+        themeButton.textContent =
+            isDark ? "☀️" : "🌙";
+
+    });
+
+});

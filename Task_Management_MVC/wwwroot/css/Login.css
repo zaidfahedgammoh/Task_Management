@@ -28,3 +28,32 @@
     justify-content: center;
     padding: 0;
 }
+/* Dark mode */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+    body.dark-mode .card {
+        background-color: #1e1e1e;
+        color: #ffffff;
+    }
+
+    body.dark-mode .text-secondary {
+        color: #b0b0b0 !important;
+    }
+
+    body.dark-mode .form-control {
+        background-color: #2a2a2a;
+        border-color: #444;
+        color: #ffffff;
+    }
+
+        body.dark-mode .form-control::placeholder {
+            color: #999;
+        }
+
+    body.dark-mode .form-label {
+        color: #ffffff;
+    }

@@ -23,11 +23,10 @@ public class AuthController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginRequest request)
     {
-        var client = _httpClientFactory.CreateClient();
-
+        var client = _httpClientFactory.CreateClient("TaskManagementApi");
         var response = await client.PostAsJsonAsync(
-            "https://localhost:7011/api/Auth/login",
-            request);
+    "api/Auth/login",
+    request);
 
         if (!response.IsSuccessStatusCode)
         {

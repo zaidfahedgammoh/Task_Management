@@ -32,21 +32,24 @@ public static class DependencyInjection
                         username = "ttl",
                         email = "ttl@test.com",
                         password = passwordHasher.Hash("Password123!"),
-                        role = UserRoles.TTL
+                        role = UserRoles.TTL,
+                        role_ar = "قائد الفريق التقني"
                     },
                     new User
                     {
                         username = "employee",
                         email = "employee@test.com",
                         password = passwordHasher.Hash("Password123!"),
-                        role = UserRoles.Employee
+                        role = UserRoles.Employee,
+                        role_ar = "موظف"
                     },
                     new User
                     {
                         username = "manager",
                         email = "manager@test.com",
                         password = passwordHasher.Hash("Password123!"),
-                        role = UserRoles.Manager
+                        role = UserRoles.Manager,
+                        role_ar = "مدير"
                     }
                 );
 
@@ -65,21 +68,24 @@ public static class DependencyInjection
                         username = "ttl",
                         email = "ttl@test.com",
                         password = passwordHasher.Hash("Password123!"),
-                        role = UserRoles.TTL
+                        role = UserRoles.TTL,
+                        role_ar = "قائد الفريق التقني"
                     },
                     new User
                     {
                         username = "employee",
                         email = "employee@test.com",
                         password = passwordHasher.Hash("Password123!"),
-                        role = UserRoles.Employee
+                        role = UserRoles.Employee,
+                        role_ar = "موظف"
                     },
                     new User
                     {
                         username = "manager",
                         email = "manager@test.com",
                         password = passwordHasher.Hash("Password123!"),
-                        role = UserRoles.Manager
+                        role = UserRoles.Manager,
+                        role_ar = "مدير"
                     }
                 );
 

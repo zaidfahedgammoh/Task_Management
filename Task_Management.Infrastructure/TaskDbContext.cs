@@ -2,7 +2,7 @@
 using Task_Management.Domain;
 
 
-namespace Task_Management_Infrastructure
+namespace Task_Management.Infrastructure
 {
     public class TaskDbContext : DbContext
     {

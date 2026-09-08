@@ -11,3 +11,10 @@ Content-Type: application/json
   "email": "ttl@test.com",
   "password": "Password123!"
 }
+### Refresh
+POST https://localhost:7011/api/Auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "jb+SBSwxd8EkeoGORgqABcTz5GphEre01qsAAUNWiZs="
+}

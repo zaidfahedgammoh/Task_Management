@@ -1,8 +1,9 @@
-﻿@{
+﻿@using Microsoft.Extensions.Localization
+@using Task_Management_MVC.Resources
+@inject IStringLocalizer<SharedResource> Localizer
 
-    @using Microsoft.AspNetCore.Mvc.Localization
-        @inject IViewLocalizer Localizer
-    ViewData["Title"] = "Login";
+@{
+    ViewData["Title"] = Localizer["Login"];
 }
 
 <div class="container min-vh-100 d-flex align-items-center justify-content-center">
@@ -12,7 +13,9 @@
             <div class="card shadow-sm border-0">
                 <div class="card-body p-4 p-md-5">
 
+                    <!-- Top controls -->
                     <div class="d-flex justify-content-end gap-2 mb-4">
+
                         <button type="button"
                                 class="btn btn-outline-secondary btn-sm"
                                 id="languageButton">
@@ -24,54 +27,63 @@
                                 id="themeButton">
                             🌙
                         </button>
+
                     </div>
 
+                    <!-- Header -->
                     <div class="text-center mb-4">
+
                         <h1 class="h3 fw-bold mb-2" id="loginTitle">
-                            Welcome back
+                            @Localizer["WelcomeBack"]
                         </h1>
 
                         <p class="text-secondary mb-0" id="loginSubtitle">
-                            Sign in to your account
+                            @Localizer["SignInToAccount"]
                         </p>
+
                     </div>
 
+                    <!-- Login form -->
                     <form id="loginForm">
 
                         <div class="mb-3">
+
                             <label for="email"
                                    class="form-label"
                                    id="emailLabel">
-                                Email
+                                @Localizer["Email"]
                             </label>
 
                             <input type="email"
                                    class="form-control"
                                    id="email"
                                    name="email"
-                                   placeholder="Enter your email"
+                                   placeholder="@Localizer["EnterYourEmail"]"
                                    required />
+
                         </div>
 
                         <div class="mb-4">
+
                             <label for="password"
                                    class="form-label"
                                    id="passwordLabel">
-                                Password
+                                @Localizer["Password"]
                             </label>
 
                             <input type="password"
                                    class="form-control"
                                    id="password"
                                    name="password"
-                                   placeholder="Enter your password"
+                                   placeholder="@Localizer["EnterYourPassword"]"
                                    required />
+
                         </div>
 
                         <button type="submit"
                                 class="btn btn-primary w-100"
                                 id="loginButton">
-                            Sign in
+                            @Localizer["SignIn"]
                         </button>
 
                         <div id="loginMessage"

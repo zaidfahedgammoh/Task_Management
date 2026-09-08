@@ -21,12 +21,15 @@ public class AuthController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
+
+
         var client = _httpClientFactory.CreateClient("TaskManagementApi");
+
         var response = await client.PostAsJsonAsync(
-    "api/Auth/login",
-    request);
+            "api/Auth/login",
+            request);
 
         if (!response.IsSuccessStatusCode)
         {
@@ -37,7 +40,6 @@ public class AuthController : Controller
 
         return Content(result, "application/json");
     }
-
     [HttpPost]
     public IActionResult SetLanguage(string culture, string returnUrl = "/")
     {

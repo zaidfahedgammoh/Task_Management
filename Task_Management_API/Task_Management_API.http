@@ -8,7 +8,7 @@ POST https://localhost:7011/api/Auth/login
 Content-Type: application/json
 
 {
-  "email": "ttl@test.com",
+  "email": "employee@test.com",
   "password": "Password123!"
 }
 ### Refresh

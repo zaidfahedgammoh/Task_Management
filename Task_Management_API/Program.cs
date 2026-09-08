@@ -4,6 +4,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Task_Management.Application;
 using Task_Management.Infrastructure;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -31,6 +33,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddOpenApi();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
+var supportedCultures = new[]
+{
+    new CultureInfo("en"),
+    new CultureInfo("ar")
+};
+
+builder.Services.Configure<RequestLocalizationOptions>(options =>
+{
+    options.DefaultRequestCulture = new RequestCulture("en");
+    options.SupportedCultures = supportedCultures;
+    options.SupportedUICultures = supportedCultures;
+});
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())

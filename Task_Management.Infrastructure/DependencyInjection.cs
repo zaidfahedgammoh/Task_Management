@@ -32,7 +32,8 @@ public static class DependencyInjection
                         username = "ttl",
                         email = "ttl@test.com",
                         password = passwordHasher.Hash("Password123!"),
-                        role = UserRoles.TTL,
+                        mobile_number = "1234567890",
+                        role = UserRoles.TTL,                       
                         role_ar = "قائد الفريق التقني"
                     },
                     new User
@@ -40,6 +41,7 @@ public static class DependencyInjection
                         username = "employee",
                         email = "employee@test.com",
                         password = passwordHasher.Hash("Password123!"),
+                        mobile_number = "1234567890",
                         role = UserRoles.Employee,
                         role_ar = "موظف"
                     },
@@ -48,8 +50,18 @@ public static class DependencyInjection
                         username = "manager",
                         email = "manager@test.com",
                         password = passwordHasher.Hash("Password123!"),
+                        mobile_number = "1234567890",
                         role = UserRoles.Manager,
                         role_ar = "مدير"
+                    },
+                    new User
+                    {
+                        username = "Admin",
+                        email = "admin@test.com",
+                        password = passwordHasher.Hash("Password123!"),
+                        mobile_number = "1234567890",
+                        role = UserRoles.Admin,
+                        role_ar = "المسؤل"
                     }
                 );
 
@@ -68,6 +80,7 @@ public static class DependencyInjection
                         username = "ttl",
                         email = "ttl@test.com",
                         password = passwordHasher.Hash("Password123!"),
+                        mobile_number = "1234567890",
                         role = UserRoles.TTL,
                         role_ar = "قائد الفريق التقني"
                     },
@@ -76,6 +89,7 @@ public static class DependencyInjection
                         username = "employee",
                         email = "employee@test.com",
                         password = passwordHasher.Hash("Password123!"),
+                        mobile_number = "1234567890",
                         role = UserRoles.Employee,
                         role_ar = "موظف"
                     },
@@ -84,8 +98,18 @@ public static class DependencyInjection
                         username = "manager",
                         email = "manager@test.com",
                         password = passwordHasher.Hash("Password123!"),
+                        mobile_number = "1234567890",
                         role = UserRoles.Manager,
                         role_ar = "مدير"
+                    },
+                    new User
+                    {
+                        username = "Admin",
+                        email = "admin@test.com",
+                        password = passwordHasher.Hash("Password123!"),
+                        mobile_number = "1234567890",
+                        role = UserRoles.Admin,
+                        role_ar = "المسؤل"
                     }
                 );
 

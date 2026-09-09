@@ -6,7 +6,9 @@ using Task_Management.Application;
 using Task_Management.Infrastructure;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+using Task_Management_API.Middleware;
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -58,10 +60,14 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
 app.Run();

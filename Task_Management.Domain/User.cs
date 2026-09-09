@@ -19,8 +19,8 @@ namespace Task_Management.Domain
         [Required]
         public string password { get; set; } = string.Empty;
 
-        [Phone]
-        public string? mobile_number { get; set; }
+        [Required]
+        public string mobile_number { get; set; }
 
         public UserRoles role { get; set; }
         public string role_ar { get; set; } = string.Empty;

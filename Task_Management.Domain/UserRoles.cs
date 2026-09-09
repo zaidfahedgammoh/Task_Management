@@ -6,6 +6,7 @@ namespace Task_Management.Domain
 {
     public enum UserRoles
     {
+        Admin,
         TTL,
         Employee,
         Manager

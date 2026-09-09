@@ -26,4 +26,10 @@ public class RefreshTokenRepository : IRefreshTokenRepository
         _context.RefreshTokens.Add(refreshToken);
         _context.SaveChanges();
     }
+
+    public void Update(RefreshToken refreshToken)
+    {
+        _context.RefreshTokens.Update(refreshToken);
+        _context.SaveChanges();
+    }
 }

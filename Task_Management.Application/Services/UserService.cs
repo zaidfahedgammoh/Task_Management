@@ -86,6 +86,19 @@ public class UserService
             return null;
         }
 
+        refreshToken.RevokedAt = DateTime.UtcNow;
+        _refreshTokenRepository.Update(refreshToken);
+
+        var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+        var newRefreshTokenEntity = new RefreshToken
+        {
+            UserId = refreshToken.UserId,
+            Token = newRefreshToken.Token,
+            ExpiresAt = newRefreshToken.ExpiresAt
+        };
+        _refreshTokenRepository.Add(newRefreshTokenEntity);
+
         var accessToken = _tokenService.GenerateAccessToken(
             refreshToken.UserId,
             refreshToken.User.email,
@@ -93,7 +106,8 @@ public class UserService
 
         return new RefreshTokenResponse
         {
-            AccessToken = accessToken
+            AccessToken = accessToken,
+            RefreshToken = newRefreshToken.Token
         };
     }
 }

@@ -6,6 +6,7 @@ namespace Task_Management.Application.Interfaces
     public interface IRefreshTokenRepository
     {
         void Add(RefreshToken refreshToken);
+        void Update(RefreshToken refreshToken);
         RefreshToken? GetByToken(string token);
     }
 }

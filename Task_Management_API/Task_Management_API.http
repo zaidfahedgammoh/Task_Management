@@ -1,8 +1,5 @@
 @Task_Management_API_HostAddress = http://localhost:5126
 
-GET {{Task_Management_API_HostAddress}}/weatherforecast/
-Accept: application/json
-
 ### Login
 POST https://localhost:7011/api/Auth/login
 Content-Type: application/json

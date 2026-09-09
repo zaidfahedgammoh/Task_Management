@@ -15,6 +15,7 @@ namespace Task_Management.Infrastructure
         public TaskDbContext(DbContextOptions<TaskDbContext> options) : base(options) { }
 
         public DbSet<User> Users => Set<User>();
-        public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>(); 
+        public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
+        public DbSet<AuditLog> AuditLogs { get; set; }
     }
 }

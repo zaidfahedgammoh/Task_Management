@@ -16,6 +16,6 @@ namespace Task_Management.Infrastructure
 
         public DbSet<User> Users => Set<User>();
         public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
-        public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
     }
 }

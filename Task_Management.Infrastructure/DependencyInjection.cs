@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Task_Management.Application.Interfaces;
 using Task_Management.Domain;
-using Task_Management.Infrastructure;
 using Task_Management.Infrastructure.Repositories;
 using Task_Management.Infrastructure.Services;
 
